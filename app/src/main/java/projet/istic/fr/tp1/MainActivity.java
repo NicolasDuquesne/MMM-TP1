@@ -21,9 +21,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Récupération de l'intent
-        Intent main = getIntent();
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -48,11 +45,11 @@ public class MainActivity extends AppCompatActivity {
                 //Création d'un Intent vers Affiche (TP1)
                 Intent iAffiche = new Intent(MainActivity.this, Affiche.class);
 
-                //Envoi des valeurs avec une clé pour les identifier
-                iAffiche.putExtra("lastName", lastName.getText().toString());
+                //Envoi des valeurs avec une clé pour les identifier (méthode sans Parcelable)
+                /*iAffiche.putExtra("lastName", lastName.getText().toString());
                 iAffiche.putExtra("firstName", firstName.getText().toString());
                 iAffiche.putExtra("date", date.getText().toString());
-                iAffiche.putExtra("city", city.getText().toString());
+                iAffiche.putExtra("city", city.getText().toString());*/
 
                 //Création d'un objet parcelable Person
                 Person p = new Person(lastName.getText().toString(),
@@ -61,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
                         city.getText().toString());
                 //Envoi de l'objet vers Affiche avec une clé pour l'identifier
                 iAffiche.putExtra("Person", p);
-
 
                 //Lancement de l'Intent iAffiche
                 startActivity(iAffiche);
@@ -88,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
+        //Action de l'option "Settings"
         if (id == R.id.action_settings) {
             return true;
         }
