@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
+import static projet.istic.fr.tp1.R.color.colorPrimaryDark;
+
 public class MainActivity extends AppCompatActivity {
 
     private boolean phoneAdded = false;
@@ -107,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
                 LinearLayout main = (LinearLayout) findViewById(R.id.layout);
                 EditText phone = new EditText(getApplicationContext());
                 phone.setText("Téléphone");
-                phone.setBackgroundColor(R.color.colorPrimaryDark);
+                phone.setBackgroundColor(colorPrimaryDark);
                 main.addView(phone);
                 item.setEnabled(false);
                 phoneAdded = true;
